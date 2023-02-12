@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaSearching", "AreaSearching\AreaSearching.csproj", "{6EC863C7-6889-4DBA-984B-FED71008CAE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaSearching", "AreaSearching\AreaSearching.csproj", "{6EC863C7-6889-4DBA-984B-FED71008CAE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaSearching.Tests", "AreaSearching.Tests\AreaSearching.Tests.csproj", "{87DD1B17-DE59-4493-BC93-1AE178999849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaSearching.Tests", "AreaSearching.Tests\AreaSearching.Tests.csproj", "{87DD1B17-DE59-4493-BC93-1AE178999849}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

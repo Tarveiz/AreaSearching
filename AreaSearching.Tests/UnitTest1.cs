@@ -1,3 +1,4 @@
+using AreaSearching;
 namespace AreaSearching.Tests
 {
     [TestClass]
@@ -6,6 +7,7 @@ namespace AreaSearching.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            AreaSearching.Shared.GetArea(5);
         }
     }
 }
