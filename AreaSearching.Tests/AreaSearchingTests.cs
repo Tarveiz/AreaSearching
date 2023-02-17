@@ -1,5 +1,3 @@
-using AreaSearching;
-
 namespace AreaSearching.Tests
 {
     [TestClass]
@@ -39,6 +37,16 @@ namespace AreaSearching.Tests
             double actual = AreaSearching.Shared.GetArea(sides, angles);
 
             Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void GetArea_sides2and2and2_angles50and50and50_ErrorReturn()
+        {
+            List<int> sides = new List<int> { 2, 2, 2 };
+            List<int> angles = new List<int> { 50, 50, 50 };
+            
+            var checkException = Assert.ThrowsException<Exception>(() => AreaSearching.Shared.GetArea(sides, angles));
+
+            Assert.AreEqual("No valid figures were found", checkException.Message);
         }
     }
 

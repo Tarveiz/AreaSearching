@@ -51,14 +51,17 @@
         /// <returns></returns>
         public bool CheckRightTriangle(List<int> sides, List<int> angles)
         {
-            if(sides.Count == 3 && angles.Count == 3)
+            Triangle triangle = new Triangle();
+            if(triangle.IsThat(sides, angles))
             {
                 foreach(int angle in angles)
                 {
                     if (angle == 90)
                         return true;
                 }
+                return false;
             }
+            throw new Exception("No valid figures were found");
         }
     }
 
@@ -120,41 +123,30 @@
     {
         public override bool IsThat(List<int>? sides = null, List<int>? angles = null, int? radius = null)
         {
-            bool triangleIsExist()
-            {
-                List<int> sidesAscending = new List<int>();
-                foreach (int i in sides)
-                {
-                    sidesAscending.Add(i);
-                }
-                if (sidesAscending.Min() <= sidesAscending[0])
-                {
-                    int temp = sidesAscending[0];
-                    sidesAscending[0] = sidesAscending.Min();
-                    if (temp <= sidesAscending[1])
-                    {
-                        sidesAscending[2] = sidesAscending[1];
-                        sidesAscending[1] = temp;
-                    }
-                    else if(temp <= sidesAscending[2])
-                    {
-
-                    }
-                }
-
-                for (int i =0; i<sides.Count(); i++)
-                {
-                    if()
-                }
-                
-                
-            }
-            
-            if(sides?.Count == 3 && angles?.Count == 3 && radius == null && angles.Sum() == 180)
+            if(sides?.Count == 3 && angles?.Count == 3 && radius == null && angles.Sum() == 180 && triangleIsExist())
             {
                 return true;
             }
             return false;
+
+            bool triangleIsExist()
+            {
+                List<int> sidesAscending = new List<int>();
+                sidesAscending.Add(sides.Min());
+                foreach (int side in sides)
+                {
+                    if (side != sides.Min() && side != sides.Max())
+                    {
+                        sidesAscending.Add(side);
+                    }
+                }
+                sidesAscending.Add(sides.Max());
+                if (sidesAscending[0] + sidesAscending[1] > sidesAscending[2])
+                    return true;
+                else
+                    return false;
+                throw new Exception("Not valid parameters");
+            }
         }
         public override void CalculateArea(List<int>? sides = null, List<int>? angles = null, int? radius = null)
         {
@@ -164,5 +156,6 @@
                 AreaValue = Math.Sqrt(semiPerimeter * (semiPerimeter - sides.ElementAt(0)) * (semiPerimeter - sides.ElementAt(1)) * (semiPerimeter - sides.ElementAt(2)));
             }
         }
+
     }
 }
